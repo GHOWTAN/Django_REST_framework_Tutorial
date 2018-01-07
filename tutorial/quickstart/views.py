@@ -1,6 +1,17 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
+from tutorial.quickstart.serializers import UserSerializer, GroupSerializer,OwnerSerializer,ProductSerializer
+from .model import Owner, Product
+
+# owners/
+class OwnerViewSet(viewsets.ModelViewSet):
+    queryset = Owner.objects.all()
+    serializer_class = OwnerSerializer
+	
+#Products/
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+	serializer_class = ProductSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
