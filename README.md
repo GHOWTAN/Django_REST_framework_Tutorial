@@ -1,5 +1,6 @@
 # Django_REST_framework_Tutorial
-# followed this website step by step http://www.django-rest-framework.org/tutorial/quickstart/#project-setup 
+# followed this website step by step
+# http://www.django-rest-framework.org/tutorial/quickstart/#project-setup 
 
 virtualenv env
 source env/bin/activate 
