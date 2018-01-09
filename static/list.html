@@ -1,0 +1,11 @@
+<html>
+	<body>
+		<script>
+		var request = new XMLHttpRequest();
+		request.open("GET", "http://127.0.0.1:8000", false);
+		request.send();
+		var array = JSON.parse(request.responseText);
+		document.write(JSON.stringify(array));
+		</script>
+	</body>
+</html>
