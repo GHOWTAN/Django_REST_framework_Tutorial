@@ -1,0 +1,47 @@
+Owner Info:<br>
+<p>	Name </p>
+<input type="text" id="name">
+<p>	Address </p>
+<input type="text" id="address">
+<p>	Email </p>
+<input type="text" id="email">
+<p>	Phone </p>
+<input type="text" id="phone">
+<p>	Product Unit </p>
+<input type="text" id="productunit">
+<button onClick="postOwner()">Add owner</button>
+<script>
+function postOwner(){
+ var ownerName=document.getElementById("name");
+ var ownerAddr=document.getElementById("address");
+ var ownerEmail=document.getElementById("email");
+ var OwnerNumber=document.getElementById("phone");
+ var productUnit=document.getElementById("productunit");
+ 
+ var jsonData = '{"name":' + JSON.stringify(ownerName.value) + ","
+ + '"address":' + JSON.stringify(ownerAddr.value) + "," +
+ '"email":' + JSON.stringify(ownerEmail.value) + "," +
+ '"phone":' + JSON.stringify(OwnerNumber.value) + "," +
+ '"product_unit":' + JSON.stringify(productUnit.value)  +'}';
+ var request = new XMLHttpRequest();
+ request.open("POST", "http://127.0.0.1:8000/owners/", false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData); 
+ var array = JSON.parse(request.responseText);
+ console.log(array);
+}
+ 
+ 
+function readCookie(name) {
+ var nameEQ = encodeURIComponent(name) + "=";
+ var ca = document.cookie.split(';');
+ for (var i = 0; i < ca.length; i++) {
+ var c = ca[i];
+ while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+ if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+ }
+ return null;
+}
+</script>

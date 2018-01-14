@@ -127,7 +127,7 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
  os.path.join(BASE_DIR, "static"),
- 'C:\Temp\tutorial\static',
+ 'D:\Github\Django_REST_framework_Tutorial\static',
 ]
 
 REST_FRAMEWORK = {

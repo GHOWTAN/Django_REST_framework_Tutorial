@@ -11,7 +11,7 @@ class OwnerSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('unit')
+        fields = ('__all__')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
