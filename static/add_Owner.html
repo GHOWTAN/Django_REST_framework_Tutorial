@@ -4,7 +4,7 @@
 
 </script>
 </head>
-<body>
+<body onload="readOwner()">
 <p>Owner Info:</p><br>
 <p>	Name </p>
 <input type="text" id="name">
@@ -17,6 +17,18 @@
 <p>	Product Unit </p>
 <input type="text" id="productunit">
 <button onClick="postOwner()">Add owner</button>
+
+
+<p>	Read Data </p>
+<input type="text" id="read_data">
+<button onClick="readOwner()">Read</button>
+
+
+
+<p>	Delete Data </p>
+<input type="text" id="delete_url">
+<button onClick="deleteOwner()">delete</button>
+
 
 <script>
 function postOwner(){
@@ -34,9 +46,15 @@ function postOwner(){
 
  post('http://127.0.0.1:8000/owners/',jsonData);
 }
+function readOwner(){
+
+var r = readEntries('http://127.0.0.1:8000/owners/'); 
+}
+
 
 function deleteOwner(){
-
+var url = document.getElementById("delete_url");
+delete(url);
 
 }
 
