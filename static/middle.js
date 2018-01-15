@@ -23,13 +23,14 @@ function post(url,data){
 
 function deleteEntry(url){
  var request = new XMLHttpRequest();
- request.open("DELETE", url, false);
+ request.open("DELETE", "http://127.0.0.1:8000/owners/l", false);
  request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
  request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
  request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
  request.send(); 
- var array = JSON.parse(request.responseText);
- console.log(array);
+ console.log(request.responseText);
+ //var array = JSON.parse(request.responseText);
+//console.log(array);
 
 }
 
