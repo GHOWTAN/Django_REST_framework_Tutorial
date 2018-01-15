@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="middle.js">
+
+</script>
+</head>
+<body>
+<p>Owner Info:</p><br>
+<p>	Name </p>
+<input type="text" id="name">
+<p>	Address </p>
+<input type="text" id="address">
+<p>	Email </p>
+<input type="text" id="email">
+<p>	Phone </p>
+<input type="text" id="phone">
+<p>	Product Unit </p>
+<input type="text" id="productunit">
+<button onClick="postOwner()">Add owner</button>
+
+<script>
+function postOwner(){
+ var ownerName=document.getElementById("name");
+ var ownerAddr=document.getElementById("address");
+ var ownerEmail=document.getElementById("email");
+ var OwnerNumber=document.getElementById("phone");
+ var productUnit=document.getElementById("productunit");
+ 
+ var jsonData = '{"name":' + JSON.stringify(ownerName.value) + ","
+ + '"address":' + JSON.stringify(ownerAddr.value) + "," +
+ '"email":' + JSON.stringify(ownerEmail.value) + "," +
+ '"phone":' + JSON.stringify(OwnerNumber.value) + "," +
+ '"product_unit":' + JSON.stringify(productUnit.value)  +'}';
+
+ post('http://127.0.0.1:8000/owners/',jsonData);
+}
+
+function deleteOwner(){
+
+
+}
+
+</script>
+</body>
+
+</html>
