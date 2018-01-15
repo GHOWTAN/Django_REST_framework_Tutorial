@@ -1,4 +1,14 @@
-
+function readEntries(url){
+ var request = new XMLHttpRequest();
+ request.open("GET", url, false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(); 
+ var array = JSON.parse(request.responseText);
+ console.log(array);
+return array;
+}
 
 function post(url,data){
  var request = new XMLHttpRequest();
@@ -11,6 +21,17 @@ function post(url,data){
  console.log(array);
 }
 
+function deleteEntry(url){
+ var request = new XMLHttpRequest();
+ request.open("DELETE", url, false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(); 
+ var array = JSON.parse(request.responseText);
+ console.log(array);
+
+}
 
 function readCookie(name) {
  var nameEQ = encodeURIComponent(name) + "=";
