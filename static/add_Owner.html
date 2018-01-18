@@ -1,8 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
+<meta charset="utf-8"/>
 <script src="middle.js"></script>
 </head>
+
 <body onload="readOwner()">
+
 <p>Owner Info:</p>
 <p>	Name </p>
 <input type="text" id="name">
@@ -38,17 +42,13 @@ function postOwner(){
  '"email":' + JSON.stringify(ownerEmail.value) + "," +
  '"phone":' + JSON.stringify(OwnerNumber.value) + "," +
  '"product_unit":' + JSON.stringify(productUnit.value)  +'}';
-<<<<<<< HEAD
-=======
-
->>>>>>> 67419df6d5366ba736b6bb9197c717e8cc7a3484
  post('http://127.0.0.1:8000/owners/',jsonData);
  
 }
 function readOwner(){
-<<<<<<< HEAD
 var r = readEntries('http://127.0.0.1:8000/owners/'); 
 }
+
 function deleteOwner(){
 var url = document.getElementById("delete_url");
 deleteEntry(url);
@@ -57,19 +57,3 @@ deleteEntry(url);
 </body>
 
 </html>
-=======
-
-var r = readEntries('http://127.0.0.1:8000/owners/'); 
-}
-
-function deleteOwner(){
-var url = document.getElementById("delete_url");
-deleteEntry(url);
-
-}
-
-</script>
-</body>
-
-</html>
->>>>>>> 67419df6d5366ba736b6bb9197c717e8cc7a3484

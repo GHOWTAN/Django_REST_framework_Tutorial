@@ -5,7 +5,7 @@ from .models import Owner, Product
 class OwnerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Owner
-        fields = ('url','__all__')
+        fields = ('url','name','address','email','phone','product_unit')
 
 
 class ProductSerializer(serializers.ModelSerializer):
